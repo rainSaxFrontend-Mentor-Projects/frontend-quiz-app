@@ -46,24 +46,24 @@
       <p>Pick a subject to get started.</p>
 
       <div class="choices">
-        <button id="HTML" class="button-html">
+        <button id="HTML" class="quiz-type">
           <div class="button-icon-container">
             <img src="./assets/images/icon-html.svg">
           </div>HTML
         </button>
-        <button id="CSS" class="button-css">
+        <button id="CSS" class="quiz-type">
           <div class="button-icon-container">
             <img src="./assets/images/icon-css.svg">
           </div>CSS
         </button>
-        <button id="Javascript" class="button-js">
+        <button id="Javascript" class="quiz-type">
           <div class="button-icon-container">
             <img src="./assets/images/icon-js.svg">
           </div>
           JavaScript
         </button>
-        <button id="Accessibility" class="button-accessibility">
-          <div class="button-icon-container">
+        <button id="Accessibility" class="quiz-type">
+          <div class=" button-icon-container">
             <img src="./assets/images/icon-accessibility.svg">
           </div>
           Accessibility
@@ -76,14 +76,16 @@
     <!-- Quiz question start -->
 
     <article class="question-screen">
-      <p>Question <!-- number --> of 10</p>
+      <p>Question <span class="question-number"><!-- number --></span> of 10</p>
 
-      <button>A</button>
-      <button>B</button>
-      <button>C</button>
-      <button>D</button>
+      <div class="choices">
+        <button>A</button>
+        <button>B</button>
+        <button>C</button>
+        <button>D</button>
 
-      <button>Submit answer</button>
+        <button>Submit answer</button>
+      </div>
     </article>
 
     <!-- Quiz question end -->

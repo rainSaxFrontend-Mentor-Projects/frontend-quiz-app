@@ -196,6 +196,7 @@ button {
     font-weight: 500;
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 1rem;
     border-radius: .75rem;
     border: 0;

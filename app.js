@@ -1,9 +1,4 @@
 
-// fetch returns a Promise, .json() returns a *2nd* Promise, therefore 2 .thens
-fetch('./data.json')
-    .then(response => response.json())
-    .then(data => console.log(data))
-
 // light dark switch section
 const toggleSwitch = document.querySelector('.light-dark-switch input[type="checkbox"]');
 
@@ -18,11 +13,12 @@ function switchMode(event) {
 
 toggleSwitch.addEventListener('change', switchMode, false);
 
-var buttons = document.querySelectorAll("button");
+var quizButtons = document.querySelectorAll(".quiz-type");
+let quizType;
 
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-        var quizType = this.id;
+for (var i = 0; i < quizButtons.length; i++) {
+    quizButtons[i].addEventListener("click", function () {
+        quizType = this.id;
         questionScreen(quizType);
     })
 }
@@ -46,5 +42,29 @@ function questionScreen(type) {
         document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
     }
     document.querySelector(".question-screen").style.display = "block";
-    //populate question & buttons, possibly with a function
+
+    //retrieve quiz data based on selection
+    getQuiz(type);
+}
+
+// fetch returns a Promise, .json() returns a *2nd* Promise, therefore 2 .thens
+let quizChosen;
+async function getQuiz(type) {
+    await fetch('./data.json')
+        .then(response => response.json())
+        .then(data => {
+            for (const quiz of data.quizzes) {
+                if (quiz.title == type) {
+                    quizChosen = quiz;
+                }
+            }
+        })
+    makeQuestions(type, quizChosen)
+}
+
+function makeQuestions(type, quizChosen) {
+    console.log(type);
+    console.log(quizChosen)
+    var qCount = 1;
+    document.querySelector(".question-number").textContent = qCount;
 }
