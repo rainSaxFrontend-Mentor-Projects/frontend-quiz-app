@@ -1,0 +1,3 @@
+-Light / Dark toggle, need to research this
+- reading data from json file
+- organize content in a grid

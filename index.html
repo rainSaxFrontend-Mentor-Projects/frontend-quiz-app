@@ -1,48 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <title>Frontend Mentor | Frontend quiz app</title>
 </head>
+
 <body>
 
   <!-- Quiz menu start -->
 
-  Welcome to the Frontend Quiz!
-  Pick a subject to get started.
+  <main>
+    <article class="start-menu">
+      <div class="grid-content">
+        <div class="light-dark-toggle">
+          <div class="sun-container">
+            <img src="">
+          </div>
+          <label class="light-dark-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+          <div class="moon-container">
+            <img src="">
+          </div>
 
-  HTML
-  CSS
-  JavaScript
-  Accessibility
+        </div>
+        <h1>Welcome to the <span class="bolded">Frontend Quiz!</span></h1>
+        <p>Pick a subject to get started.</p>
 
-  <!-- Quiz menu end -->
+        <div class="choices">
+          <button class="button-html">
+            <div class="button-icon-container">
+              <img src="./assets/images/icon-html.svg">
+            </div>HTML
+          </button>
+          <button class="button-css">
+            <div class="button-icon-container">
+              <img src="./assets/images/icon-css.svg">
+            </div>CSS
+          </button>
+          <button class="button-js">
+            <div class="button-icon-container">
+              <img src="./assets/images/icon-js.svg">
+            </div>
+            JavaScript
+          </button>
+          <button class="button-accessibility">
+            <div class="button-icon-container">
+              <img src="./assets/images/icon-accessibility.svg">
+            </div>
+            Accessibility
+          </button>
+        </div>
+      </div>
+    </article>
 
-  <!-- Quiz question start -->
+    <!-- Quiz menu end -->
 
-  Question <!-- number --> of 10
+    <!-- Quiz question start -->
 
-  A
-  B
-  C
-  D
+    <article class="question-screen">
+      Question <!-- number --> of 10
 
-  Submit answer
+      A
+      B
+      C
+      D
 
-  <!-- Quiz question end -->
+      Submit answer
+    </article>
 
-  <!-- Quiz completed start -->
+    <!-- Quiz question end -->
 
-  Quiz completed
-  You scored...
+    <!-- Quiz completed start -->
 
-  <!-- score --> out of 10
+    <article class="quiz-complete">
+      Quiz completed
+      You scored...
 
-  <!-- Quiz completed end -->
+      <!-- score --> out of 10
 
+    </article>
+
+    <!-- Quiz completed end -->
+
+  </main>
+  <script src="./app.js"></script>
 </body>
+
 </html>

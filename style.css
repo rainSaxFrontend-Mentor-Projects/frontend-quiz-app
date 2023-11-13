@@ -1,0 +1,203 @@
+:root {
+    --html-bg: #FFF1E9;
+    --css-bg: #E0FDEF;
+    --js-bg: #EBF0FF;
+    --accessibility-bg: #F6E7FF;
+    --text-color: #313E51;
+    --text-color-p: #626C7F;
+    --purple: #A729F5;
+    --bg-col: white;
+    --button-bg: white;
+    --bg: url("./assets/images/pattern-background-mobile-light.svg");
+    --sun-src: url("./assets/images/icon-sun-dark.svg");
+    --moon-src: url("./assets/images/icon-moon-dark.svg");
+}
+
+[data-theme="dark"] {
+    --text-color: #FFF;
+    --text-color-p: #ABC1E1;
+    --bg-col: #313E51;
+    --button-bg: #3B4D66;
+    --bg: url("./assets/images/pattern-background-mobile-dark.svg");
+    --sun-src: url("./assets/images/icon-sun-light.svg");
+    --moon-src: url("./assets/images/icon-moon-light.svg");
+}
+
+/**************** begin css reset ****************/
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--bg-col);
+    background-image: var(--bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+/*************** End of css reset ****************/
+
+.question-screen {
+    display: none;
+}
+
+.quiz-complete {
+    display: none;
+}
+
+/*************** Start - Light / Dark Toggle Switch ****************/
+
+.light-dark-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5rem;
+    margin-bottom: 3rem;
+}
+
+.light-dark-switch {
+    display: inline-block;
+    position: relative;
+    width: 2rem;
+    height: 1.25rem;
+}
+
+.light-dark-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--purple);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: .75rem;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: .75rem;
+}
+
+input:checked+.slider:before {
+    transform: translateX(0.8125rem);
+}
+
+.slider.round {
+    border-radius: 62.4375rem;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.sun-container,
+.moon-container {
+    width: 1rem;
+    height: 1rem;
+}
+
+.sun-container>img {
+    content: var(--sun-src);
+}
+
+.moon-container>img {
+    content: var(--moon-src);
+}
+
+/*************** End - Light / Dark Toggle Switch ****************/
+
+article {
+    padding: 1rem 1.5rem;
+}
+
+h1 {
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 1.972rem + 2.25vw, 4rem);
+}
+
+h1>span {
+    font-weight: 500;
+}
+
+p {
+    color: var(--text-color-p);
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-size: 1.125rem;
+    font-size: clamp(1.125rem, 0.905rem + 0.939vw, 1.75rem);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: .75rem;
+    border: 0;
+    padding: .75rem;
+    box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, .14);
+}
+
+.button-icon-container {
+    border-radius: .75rem;
+}
+
+.button-html>.button-icon-container {
+    background-color: var(--html-bg);
+}
+
+.button-css>.button-icon-container {
+    background-color: var(--css-bg);
+}
+
+.button-js>.button-icon-container {
+    background-color: var(--js-bg);
+}
+
+.button-accessibility>.button-icon-container {
+    background-color: var(--accessibility-bg);
+}
