@@ -72,7 +72,7 @@ button {
 .row-top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .curr-subject {
@@ -153,8 +153,6 @@ input:checked+.slider:before {
 article {
     padding: 1rem 1.5rem;
 }
-
-
 
 h1 {
     color: var(--text-color);
