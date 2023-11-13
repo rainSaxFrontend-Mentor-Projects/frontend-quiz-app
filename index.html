@@ -16,14 +16,14 @@
 </head>
 
 <body>
-
-  <!-- Quiz menu start -->
-
   <main>
     <article class="row-top">
       <div class="curr-subject">
-        <img src="">
-        <h2>some Subject</h2>
+        <div class="button-icon-container">
+          <img class="subject-img" src="./assets/images/icon-css.svg">
+        </div>
+        <!-- <img class="subject-img" src=""> -->
+        <h2 class="subject-chosen">some Subject</h2>
       </div>
       <div class="light-dark-toggle">
         <div class="sun-container">
@@ -39,28 +39,30 @@
       </div>
     </article>
 
+    <!-- Quiz menu start -->
+
     <article class="start-menu">
       <h1>Welcome to the <span class="bolded">Frontend Quiz!</span></h1>
       <p>Pick a subject to get started.</p>
 
       <div class="choices">
-        <button class="button-html">
+        <button id="HTML" class="button-html">
           <div class="button-icon-container">
             <img src="./assets/images/icon-html.svg">
           </div>HTML
         </button>
-        <button class="button-css">
+        <button id="CSS" class="button-css">
           <div class="button-icon-container">
             <img src="./assets/images/icon-css.svg">
           </div>CSS
         </button>
-        <button class="button-js">
+        <button id="Javascript" class="button-js">
           <div class="button-icon-container">
             <img src="./assets/images/icon-js.svg">
           </div>
           JavaScript
         </button>
-        <button class="button-accessibility">
+        <button id="Accessibility" class="button-accessibility">
           <div class="button-icon-container">
             <img src="./assets/images/icon-accessibility.svg">
           </div>
