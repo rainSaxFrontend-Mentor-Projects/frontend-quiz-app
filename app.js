@@ -1,3 +1,6 @@
+
+
+// light dark switch section
 const toggleSwitch = document.querySelector('.light-dark-switch input[type="checkbox"]');
 
 function switchMode(event) {
