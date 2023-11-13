@@ -35,7 +35,7 @@ function questionScreen(type) {
     else if (type == "CSS") {
         document.querySelector(".subject-img").src = "./assets/images/icon-css.svg"
     }
-    else if (type == "Javascript") {
+    else if (type == "JavaScript") {
         document.querySelector(".subject-img").src = "./assets/images/icon-js.svg"
     }
     else {
