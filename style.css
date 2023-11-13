@@ -79,7 +79,7 @@ button {
     display: flex;
     align-items: center;
     visibility: hidden;
-    gap: .25rem;
+    gap: 1rem;
 }
 
 /*************** End Hide Other Screens ****************/
@@ -203,6 +203,11 @@ button {
     box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, .14);
 }
 
+.button-icon-container>img {
+    border-radius: .75rem;
+    padding: .15rem;
+}
+
 .button-icon-container>img[src="./assets/images/icon-html.svg"] {
     background-color: var(--html-bg);
 }
@@ -217,8 +222,4 @@ button {
 
 .button-icon-container>img[src="./assets/images/icon-accessibility.svg"] {
     background-color: var(--accessibility-bg);
-}
-
-.button-icon-container {
-    border-radius: .75rem;
 }

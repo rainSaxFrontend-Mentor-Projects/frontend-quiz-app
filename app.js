@@ -45,4 +45,6 @@ function questionScreen(type) {
     else {
         document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
     }
+    document.querySelector(".question-screen").style.display = "block";
+    //populate question & buttons, possibly with a function
 }
