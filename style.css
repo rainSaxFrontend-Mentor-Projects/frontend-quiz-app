@@ -59,6 +59,8 @@ button {
 
 /*************** End of css reset ****************/
 
+/*************** Start Hide Other Screens ****************/
+
 .question-screen {
     display: none;
 }
@@ -67,14 +69,24 @@ button {
     display: none;
 }
 
+.row-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.curr-subject {
+    visibility: hidden;
+}
+
+/*************** End Hide Other Screens ****************/
+
 /*************** Start - Light / Dark Toggle Switch ****************/
 
 .light-dark-toggle {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: .5rem;
-    margin-bottom: 3rem;
 }
 
 .light-dark-switch {
@@ -141,6 +153,8 @@ input:checked+.slider:before {
 article {
     padding: 1rem 1.5rem;
 }
+
+
 
 h1 {
     color: var(--text-color);
