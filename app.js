@@ -47,24 +47,51 @@ function questionScreen(type) {
     getQuiz(type);
 }
 
+var quizChosen;
+var qCount = 0;
+var submit = document.querySelector(".submit-answer");
+
 // fetch returns a Promise, .json() returns a *2nd* Promise, therefore 2 .thens
-let quizChosen;
 async function getQuiz(type) {
-    await fetch('./data.json')
-        .then(response => response.json())
-        .then(data => {
-            for (const quiz of data.quizzes) {
-                if (quiz.title == type) {
-                    quizChosen = quiz;
-                }
-            }
-        })
-    makeQuestions(type, quizChosen)
+    const response = await fetch('./data.json');
+    const data = await response.json();
+    for (const quiz of data.quizzes) {
+        if (quiz.title == type) {
+            quizChosen = quiz;
+        }
+    }
+    makeQuestions(quizChosen)
 }
 
-function makeQuestions(type, quizChosen) {
-    console.log(type);
-    console.log(quizChosen)
-    var qCount = 1;
+// quiz flow:
+// populate fields -> submit event handler validates (wrong - show wrong, do nothing. right - show right, move on)
+
+function makeQuestions(quizChoice) {
+    qCount++;
     document.querySelector(".question-number").textContent = qCount;
+    let options = document.querySelectorAll(".option");
+
+    document.querySelector(".question").textContent = quizChoice.questions[qCount].question;
+    // console.log(quizChoice.questions[qCount].question)
+    // console.log(quizChoice.questions[qCount].options)
+
+    for (let i = 0; i < options.length; i++) {
+        switch (i) {
+            case 0: options[i].innerHTML = "<div class='option-box'>A</div>"
+                break;
+            case 1: options[i].innerHTML = "<div class='option-box'>B</div>"
+                break;
+            case 2: options[i].innerHTML = "<div class='option-box'>C</div>"
+                break;
+            case 3: options[i].innerHTML = "<div class='option-box'>D</div>"
+                break;
+        }
+        options[i].append(quizChoice.questions[qCount].options[i])
+    }
 }
+
+submit.addEventListener("click", function () {
+    console.log("submit button pressed!")
+    // validate - if good, then call makeQuestions
+    makeQuestions(quizChosen);
+})

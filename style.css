@@ -8,6 +8,8 @@
     --purple: #A729F5;
     --bg-col: white;
     --button-bg: white;
+    --option-bg: #F4F6FA;
+    --option-color: #626C7F;
     --bg: url("./assets/images/pattern-background-mobile-light.svg");
     --sun-src: url("./assets/images/icon-sun-dark.svg");
     --moon-src: url("./assets/images/icon-moon-dark.svg");
@@ -223,4 +225,15 @@ button {
 
 .button-icon-container>img[src="./assets/images/icon-accessibility.svg"] {
     background-color: var(--accessibility-bg);
+}
+
+.option-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--option-color);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .75rem;
+    background-color: var(--option-bg);
 }
