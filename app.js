@@ -75,6 +75,10 @@ function makeQuestions(quizChoice) {
     // console.log(quizChoice.questions[qCount].question)
     // console.log(quizChoice.questions[qCount].options)
 
+    for (option of options) {
+        option.classList.remove("selected")
+    }
+
     for (let i = 0; i < options.length; i++) {
         switch (i) {
             case 0: options[i].innerHTML = "<div class='option-box'>A</div>"
@@ -90,8 +94,21 @@ function makeQuestions(quizChoice) {
     }
 }
 
+var options = document.querySelectorAll(".option");
+
+for (let i = 0; i < options.length; i++) {
+    options[i].addEventListener("click", function () {
+        // console.log(options[i].id + " was clicked!")
+        for (option of options) {
+            option.classList.remove("selected")
+        }
+        options[i].classList.add("selected");
+    })
+}
+
 submit.addEventListener("click", function () {
     console.log("submit button pressed!")
+    let selected = document.querySelector(".selected").textContent;
     // validate - if good, then call makeQuestions
     makeQuestions(quizChosen);
 })

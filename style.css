@@ -237,3 +237,7 @@ button {
     border-radius: .75rem;
     background-color: var(--option-bg);
 }
+
+.selected {
+    border: 2px solid var(--purple);
+}
