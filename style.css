@@ -238,6 +238,11 @@ button {
     background-color: var(--option-bg);
 }
 
+.selected-box {
+    background-color: var(--purple);
+    color: white;
+}
+
 .selected {
-    border: 2px solid var(--purple);
+    border: 3px solid var(--purple);
 }

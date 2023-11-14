@@ -101,8 +101,10 @@ for (let i = 0; i < options.length; i++) {
         // console.log(options[i].id + " was clicked!")
         for (option of options) {
             option.classList.remove("selected")
+            option.firstChild.classList.remove("selected-box")
         }
-        options[i].classList.add("selected");
+        options[i].classList.add("selected")
+        options[i].firstChild.classList.add("selected-box")
     })
 }
 
