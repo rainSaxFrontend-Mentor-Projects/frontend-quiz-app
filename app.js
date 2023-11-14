@@ -48,7 +48,8 @@ function questionScreen(type) {
 }
 
 var quizChosen;
-var qCount = 0;
+var qCount = -1;
+var score = 0;
 var submit = document.querySelector(".submit-answer");
 
 // fetch returns a Promise, .json() returns a *2nd* Promise, therefore 2 .thens
@@ -68,7 +69,7 @@ async function getQuiz(type) {
 
 function makeQuestions(quizChoice) {
     qCount++;
-    document.querySelector(".question-number").textContent = qCount;
+    document.querySelector(".question-number").textContent = (qCount + 1);
     let options = document.querySelectorAll(".option");
 
     document.querySelector(".question").textContent = quizChoice.questions[qCount].question;
@@ -91,6 +92,7 @@ function makeQuestions(quizChoice) {
                 break;
         }
         options[i].append(quizChoice.questions[qCount].options[i])
+        options[i].innerHTML += "<img src='./assets/images/icon-correct.svg'>"
     }
 }
 
@@ -109,8 +111,31 @@ for (let i = 0; i < options.length; i++) {
 }
 
 submit.addEventListener("click", function () {
-    console.log("submit button pressed!")
-    let selected = document.querySelector(".selected").textContent;
+    let selectedBox, answerText;
+    if (selectedBox = document.querySelector(".selected")) {
+        // remove selection letter from string
+        answerText = selectedBox.textContent.slice(1, selectedBox.textContent.length);
+        // console.log(selected)
+    }
+    else {
+        console.log("no selected :(")
+        return
+    }
     // validate - if good, then call makeQuestions
-    makeQuestions(quizChosen);
+
+    if (validate(answerText)) {
+        // instead of makeQuestions, change styling to green look, and submit button to next question text
+        score++;
+        selectedBox.innerHTML += "<img src='./assets/images/icon-correct.svg'>"
+        // makeQuestions(quizChosen);
+    }
+    else {
+        // apply some invalid css styles to boxes
+    }
+    return
 })
+
+function validate(selected) {
+    let question = quizChosen.questions[qCount];
+    return (question.answer === selected)
+}
