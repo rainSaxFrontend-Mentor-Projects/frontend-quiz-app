@@ -42,7 +42,6 @@ function questionScreen(type) {
         document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
     }
     document.querySelector(".question-screen").style.display = "block";
-
     //retrieve quiz data based on selection
     getQuiz(type);
 }

@@ -300,3 +300,36 @@ button {
 .invalid-icon {
     justify-self: end;
 }
+
+@media (min-width: 768px) {
+    article {
+        padding: 2.5rem 4rem;
+    }
+
+    .start-menu {
+        padding-top: 0rem;
+    }
+
+    .row-top {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        width: 29rem;
+    }
+}
+
+@media (min-width: 1440px) {
+
+    .start-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 6rem 8.75rem;
+    }
+
+    .choices {
+        width: 35rem;
+        height: 28rem;
+        gap: 1.5rem;
+    }
+}
