@@ -24,6 +24,7 @@ for (var i = 0; i < quizButtons.length; i++) {
 
 function questionScreen(type) {
     document.querySelector(".start-menu").style.display = "none"
+    // document.querySelector(".start-menu").classList.toggle("visible")
     document.querySelector(".subject-chosen").innerHTML = type
     document.querySelector(".curr-subject").style.visibility = "visible"
 
@@ -201,3 +202,10 @@ function validate(selected) {
 }
 
 // insert code for quiz complete screen
+
+document.querySelector(".restart").addEventListener("click", function () {
+    document.querySelector(".quiz-complete").style.display = "none"
+    document.querySelector(".start-menu").classList.toggle("visible")
+    qCount = -1
+    score = 0
+})

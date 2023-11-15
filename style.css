@@ -334,6 +334,15 @@ button {
     justify-content: space-between;
 }
 
+.start-menu>.left-content {
+    justify-content: flex-start;
+    gap: 3rem;
+}
+
+.visible {
+    display: block;
+}
+
 @media (min-width: 768px) {
     button {
         font-size: 1.75rem;
@@ -362,12 +371,18 @@ button {
     h1 {
         width: 29rem;
     }
+
+
 }
 
 @media (min-width: 1440px) {
 
     .left-content {
         max-width: 35rem;
+    }
+
+    .visible {
+        display: flex;
     }
 
     .start-menu {
