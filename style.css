@@ -252,6 +252,20 @@ button {
     background-color: var(--option-bg);
 }
 
+.select-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    gap: 1rem;
+}
+
+.select-prompt>p {
+    color: var(--invalid-color);
+    margin: 0;
+    font-style: normal;
+}
+
 .selected-box {
     background-color: var(--purple);
     color: white;

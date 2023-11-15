@@ -119,13 +119,14 @@ submit.addEventListener("click", function () {
     }
     else {
         console.log("no selected :(")
+        document.querySelector(".select-prompt").style.visibility = "visible"
         return
     }
     // validate - if good, then call makeQuestions
 
     if (validate(answerText)) {
         // instead of makeQuestions, change styling to green look, and submit button to next question text
-        if (!selectedBox.classList.contains("correct-icon")) {
+        if (!selectedBox.classList.contains("correct")) {
             score++;
             selectedBox.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
         }
@@ -134,6 +135,7 @@ submit.addEventListener("click", function () {
 
         selectedBox.classList.add("correct")
         selectedBox.firstChild.classList.add("correct-box")
+        document.querySelector(".select-prompt").style.visibility = "hidden"
         submit.textContent = "Next Question";
         // makeQuestions(quizChosen);
     }
@@ -147,6 +149,7 @@ submit.addEventListener("click", function () {
 
         selectedBox.classList.add("invalid")
         selectedBox.firstChild.classList.add("invalid-box")
+        document.querySelector(".select-prompt").style.visibility = "hidden"
     }
     return
 })
