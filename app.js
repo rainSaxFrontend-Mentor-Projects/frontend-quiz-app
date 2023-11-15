@@ -60,6 +60,7 @@ async function getQuiz(type) {
         if (quiz.title == type) {
             quizChosen = quiz;
             totalQuestions = quizChosen.questions.length;
+            document.querySelector(".question-total").textContent = totalQuestions
             increment = (1 / totalQuestions) * 100;
         }
     }
