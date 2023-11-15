@@ -76,7 +76,7 @@ function makeQuestions(quizChoice) {
     // console.log(quizChoice.questions[qCount].question)
     // console.log(quizChoice.questions[qCount].options)
 
-    for (option of options) {
+    for (let option of options) {
         option.classList.remove("selected")
     }
 
@@ -92,7 +92,7 @@ function makeQuestions(quizChoice) {
                 break;
         }
         options[i].append(quizChoice.questions[qCount].options[i])
-        options[i].innerHTML += "<img src='./assets/images/icon-correct.svg'>"
+        // options[i].innerHTML += "<img src='./assets/images/icon-correct.svg'>"
     }
 }
 
@@ -126,7 +126,14 @@ submit.addEventListener("click", function () {
     if (validate(answerText)) {
         // instead of makeQuestions, change styling to green look, and submit button to next question text
         score++;
-        selectedBox.innerHTML += "<img src='./assets/images/icon-correct.svg'>"
+        selectedBox.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
+        document.querySelector(".correct-icon").style.alignSelf = "flex-end"
+        selectedBox.classList.remove("selected")
+        selectedBox.firstChild.classList.remove("selected-box")
+
+        selectedBox.classList.add("correct")
+        selectedBox.firstChild.classList.add("correct-box")
+        submit.textContent = "Next Question";
         // makeQuestions(quizChosen);
     }
     else {

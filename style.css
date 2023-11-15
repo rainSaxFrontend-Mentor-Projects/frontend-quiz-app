@@ -10,6 +10,7 @@
     --button-bg: white;
     --option-bg: #F4F6FA;
     --option-color: #626C7F;
+    --correct-color: #26D782;
     --bg: url("./assets/images/pattern-background-mobile-light.svg");
     --sun-src: url("./assets/images/icon-sun-dark.svg");
     --moon-src: url("./assets/images/icon-moon-dark.svg");
@@ -206,6 +207,11 @@ button {
     box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, .14);
 }
 
+.submit-answer {
+    align-items: center;
+    justify-content: center;
+}
+
 .button-icon-container>img {
     border-radius: .75rem;
     padding: .15rem;
@@ -245,4 +251,13 @@ button {
 
 .selected {
     border: 3px solid var(--purple);
+}
+
+.correct-box {
+    background-color: var(--correct-color);
+    color: white;
+}
+
+.correct {
+    border: 3px solid var(--correct-color);
 }
