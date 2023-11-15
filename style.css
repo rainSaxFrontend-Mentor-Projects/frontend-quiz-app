@@ -210,6 +210,9 @@ button {
 .submit-answer {
     align-items: center;
     justify-content: center;
+    height: 3.5rem;
+    background-color: var(--purple);
+    color: white;
 }
 
 .button-icon-container>img {
