@@ -11,6 +11,7 @@
     --option-bg: #F4F6FA;
     --option-color: #626C7F;
     --correct-color: #26D782;
+    --invalid-color: #EE5454;
     --bg: url("./assets/images/pattern-background-mobile-light.svg");
     --sun-src: url("./assets/images/icon-sun-dark.svg");
     --moon-src: url("./assets/images/icon-moon-dark.svg");
@@ -197,8 +198,11 @@ button {
     font-size: 1.125rem;
     font-size: clamp(1.125rem, 0.905rem + 0.939vw, 1.75rem);
     font-weight: 500;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
+    justify-items: start;
     width: 100%;
     gap: 1rem;
     border-radius: .75rem;
@@ -208,6 +212,7 @@ button {
 }
 
 .submit-answer {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 3.5rem;
@@ -263,4 +268,21 @@ button {
 
 .correct {
     border: 3px solid var(--correct-color);
+}
+
+.correct-icon {
+    justify-self: end;
+}
+
+.invalid-box {
+    background-color: var(--invalid-color);
+    color: white;
+}
+
+.invalid {
+    border: 3px solid var(--invalid-color);
+}
+
+.invalid-icon {
+    justify-self: end;
 }

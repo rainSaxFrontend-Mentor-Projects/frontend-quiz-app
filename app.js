@@ -125,9 +125,10 @@ submit.addEventListener("click", function () {
 
     if (validate(answerText)) {
         // instead of makeQuestions, change styling to green look, and submit button to next question text
-        score++;
-        selectedBox.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
-        document.querySelector(".correct-icon").style.alignSelf = "flex-end"
+        if (!selectedBox.classList.contains("correct-icon")) {
+            score++;
+            selectedBox.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
+        }
         selectedBox.classList.remove("selected")
         selectedBox.firstChild.classList.remove("selected-box")
 
@@ -138,6 +139,14 @@ submit.addEventListener("click", function () {
     }
     else {
         // apply some invalid css styles to boxes
+        if (!selectedBox.classList.contains("invalid-icon")) {
+            selectedBox.innerHTML += "<img class='invalid-icon' src='./assets/images/icon-incorrect.svg'>"
+        }
+        selectedBox.classList.remove("selected")
+        selectedBox.firstChild.classList.remove("selected-box")
+
+        selectedBox.classList.add("invalid")
+        selectedBox.firstChild.classList.add("invalid-box")
     }
     return
 })
