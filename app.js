@@ -70,14 +70,15 @@ async function getQuiz(type) {
 function makeQuestions(quizChoice) {
     qCount++;
     document.querySelector(".question-number").textContent = (qCount + 1);
+    submit.textContent = "Submit"
     let options = document.querySelectorAll(".option");
 
     document.querySelector(".question").textContent = quizChoice.questions[qCount].question;
-    // console.log(quizChoice.questions[qCount].question)
-    // console.log(quizChoice.questions[qCount].options)
 
     for (let option of options) {
         option.classList.remove("selected")
+        option.classList.remove("invalid")
+        option.classList.remove("correct")
     }
 
     for (let i = 0; i < options.length; i++) {
@@ -112,23 +113,27 @@ for (let i = 0; i < options.length; i++) {
 
 submit.addEventListener("click", function () {
     let selectedBox, answerText;
+    if (submit.textContent == "Next Question") {
+        makeQuestions(quizChosen);
+        return;
+    }
     if (selectedBox = document.querySelector(".selected")) {
+
         // remove selection letter from string
         answerText = selectedBox.textContent.slice(1, selectedBox.textContent.length);
-        // console.log(selected)
+
+        // once submit is pressed, is a selected box exists, remove it's selected classes
+        selectedBox.classList.remove("selected")
+        selectedBox.firstChild.classList.remove("selected-box")
     }
     else {
         console.log("no selected :(")
         document.querySelector(".select-prompt").style.visibility = "visible"
         return
     }
-    // validate - if good, then call makeQuestions
 
     if (validate(answerText)) {
         // instead of makeQuestions, change styling to green look, and submit button to next question text
-        selectedBox.classList.remove("selected")
-        selectedBox.firstChild.classList.remove("selected-box")
-
         if (!selectedBox.classList.contains("correct")) {
             score++;
             selectedBox.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
@@ -136,8 +141,6 @@ submit.addEventListener("click", function () {
         selectedBox.classList.add("correct")
         selectedBox.firstChild.classList.add("correct-box")
         document.querySelector(".select-prompt").style.visibility = "hidden"
-        submit.textContent = "Next Question";
-        // makeQuestions(quizChosen);
     }
     else {
         // apply some invalid css styles to boxes
@@ -149,8 +152,34 @@ submit.addEventListener("click", function () {
         selectedBox.firstChild.classList.add("invalid-box")
         document.querySelector(".select-prompt").style.visibility = "hidden"
     }
-    return
+
+    // console.log("current score is: " + score)
+    revealAnswers();
+
+    submit.textContent = "Next Question";
 })
+
+function revealAnswers() {
+    for (option of options) {
+        let text = option.textContent.slice(1, option.textContent.length)
+
+        if (validate(text)) {
+            if (!option.classList.contains("correct")) {
+                option.classList.add("correct")
+                option.firstChild.classList.add("correct-box")
+                option.innerHTML += "<img class='correct-icon' src='./assets/images/icon-correct.svg'>"
+
+            }
+        }
+        else {
+            if (!option.classList.contains("invalid")) {
+                option.classList.add("invalid")
+                option.firstChild.classList.add("invalid-box")
+                option.innerHTML += "<img class='invalid-icon' src='./assets/images/icon-incorrect.svg'>"
+            }
+        }
+    }
+}
 
 function validate(selected) {
     let question = quizChosen.questions[qCount];
