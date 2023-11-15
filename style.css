@@ -65,12 +65,14 @@ button {
 
 /*************** Start Hide Other Screens ****************/
 
-.question-screen {
-    display: none;
-}
-
 .quiz-complete {
     display: none;
+    flex-direction: column;
+}
+
+.question-screen {
+    display: none;
+    flex-direction: column;
 }
 
 .row-top {
@@ -184,6 +186,23 @@ p {
     font-weight: 400;
     margin-top: 1rem;
     margin-bottom: 2.5rem;
+}
+
+.progress-bar.whole {
+    width: 100%;
+    height: 1rem;
+    background-color: white;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: .25rem;
+    border-radius: 62.4375rem;
+}
+
+.progress-bar.done {
+    background-color: var(--purple);
+    border-radius: 6.5rem;
+    width: 10%;
+    height: .5rem;
 }
 
 .choices {
@@ -301,9 +320,21 @@ button {
     justify-self: end;
 }
 
+.question-count {
+    margin-top: 0;
+}
+
 @media (min-width: 768px) {
     article {
         padding: 2.5rem 4rem;
+    }
+
+    .question-screen {
+        flex-direction: column;
+    }
+
+    .quiz-complete {
+        flex-direction: column;
     }
 
     .start-menu {
@@ -325,6 +356,16 @@ button {
         display: flex;
         justify-content: space-between;
         padding: 6rem 8.75rem;
+    }
+
+    .question-screen {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .quiz-complete {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .choices {

@@ -1,4 +1,3 @@
-
 // light dark switch section
 const toggleSwitch = document.querySelector('.light-dark-switch input[type="checkbox"]');
 
@@ -41,7 +40,7 @@ function questionScreen(type) {
     else {
         document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
     }
-    document.querySelector(".question-screen").style.display = "block";
+    document.querySelector(".question-screen").style.display = "flex"
     //retrieve quiz data based on selection
     getQuiz(type);
 }
