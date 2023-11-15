@@ -13,7 +13,7 @@ function switchMode(event) {
 toggleSwitch.addEventListener('change', switchMode, false);
 
 var quizButtons = document.querySelectorAll(".quiz-type");
-let quizType;
+var quizType;
 
 for (var i = 0; i < quizButtons.length; i++) {
     quizButtons[i].addEventListener("click", function () {
@@ -47,8 +47,10 @@ function questionScreen(type) {
 
 var quizChosen;
 var qCount = -1;
+var totalQuestions;
 var score = 0;
 var submit = document.querySelector(".submit-answer");
+var increment;
 
 // fetch returns a Promise, .json() returns a *2nd* Promise, therefore 2 .thens
 async function getQuiz(type) {
@@ -57,10 +59,13 @@ async function getQuiz(type) {
     for (const quiz of data.quizzes) {
         if (quiz.title == type) {
             quizChosen = quiz;
+            totalQuestions = quizChosen.questions.length;
+            increment = (1 / totalQuestions) * 100;
         }
     }
     makeQuestions(quizChosen)
 }
+
 
 // quiz flow:
 // populate fields -> submit event handler validates (wrong - show wrong, do nothing. right - show right, move on)
@@ -68,6 +73,7 @@ async function getQuiz(type) {
 function makeQuestions(quizChoice) {
     qCount++;
     document.querySelector(".question-number").textContent = (qCount + 1);
+    document.querySelector(".progress-bar.done").style.width = (increment * (qCount + 1)).toString() + "%";
     submit.textContent = "Submit"
     let options = document.querySelectorAll(".option");
 
@@ -155,7 +161,7 @@ submit.addEventListener("click", function () {
     // console.log("current score is: " + score)
     revealAnswers();
 
-    if (qCount >= 9) {
+    if (qCount >= (totalQuestions - 1)) {
         console.log("all questions asked !")
         // switch to results screen here
         document.querySelector(".question-screen").style.display = "none"

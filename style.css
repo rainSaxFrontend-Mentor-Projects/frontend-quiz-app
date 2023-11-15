@@ -201,7 +201,7 @@ p {
 .progress-bar.done {
     background-color: var(--purple);
     border-radius: 6.5rem;
-    width: 10%;
+    width: 0%;
     height: .5rem;
 }
 
