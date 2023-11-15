@@ -207,6 +207,7 @@ function validate(selected) {
 document.querySelector(".restart").addEventListener("click", function () {
     document.querySelector(".quiz-complete").classList.toggle("visible")
     document.querySelector(".start-menu").classList.toggle("visible")
+    document.querySelector(".curr-subject").style.visibility = "hidden"
     qCount = -1
     score = 0
 })
