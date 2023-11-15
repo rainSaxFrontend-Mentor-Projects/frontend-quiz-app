@@ -64,6 +64,9 @@ button {
 /*************** End of css reset ****************/
 
 /*************** Start Hide Other Screens ****************/
+.start-menu {
+    display: none;
+}
 
 .quiz-complete {
     display: none;
@@ -372,7 +375,6 @@ button {
         width: 29rem;
     }
 
-
 }
 
 @media (min-width: 1440px) {
@@ -386,7 +388,6 @@ button {
     }
 
     .start-menu {
-        display: flex;
         justify-content: space-between;
         padding: 6rem 8.75rem;
     }
