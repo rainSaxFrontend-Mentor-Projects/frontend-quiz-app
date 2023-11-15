@@ -69,7 +69,6 @@ async function getQuiz(type) {
     makeQuestions(quizChosen)
 }
 
-
 // quiz flow:
 // populate fields -> submit event handler validates (wrong - show wrong, do nothing. right - show right, move on)
 
