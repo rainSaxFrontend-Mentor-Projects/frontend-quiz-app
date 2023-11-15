@@ -1,5 +1,6 @@
 // light dark switch section
 const toggleSwitch = document.querySelector('.light-dark-switch input[type="checkbox"]');
+document.querySelector(".start-menu").classList.toggle("visible")
 
 function switchMode(event) {
     if (event.target.checked) {
@@ -23,8 +24,7 @@ for (var i = 0; i < quizButtons.length; i++) {
 }
 
 function questionScreen(type) {
-    document.querySelector(".start-menu").style.display = "none"
-    // document.querySelector(".start-menu").classList.toggle("visible")
+    document.querySelector(".start-menu").classList.toggle("visible")
     document.querySelector(".subject-chosen").innerHTML = type
     document.querySelector(".curr-subject").style.visibility = "visible"
 
@@ -41,7 +41,8 @@ function questionScreen(type) {
     else {
         document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
     }
-    document.querySelector(".question-screen").style.display = "flex"
+    document.querySelector(".question-screen").classList.toggle("visible")
+
     //retrieve quiz data based on selection
     getQuiz(type);
 }
@@ -165,8 +166,8 @@ submit.addEventListener("click", function () {
     if (qCount >= (totalQuestions - 1)) {
         console.log("all questions asked !")
         // switch to results screen here
-        document.querySelector(".question-screen").style.display = "none"
-        document.querySelector(".quiz-complete").style.display = "block"
+        document.querySelector(".question-screen").classList.toggle("visible")
+        document.querySelector(".quiz-complete").classList.toggle("visible")
         return;
     }
 
@@ -204,7 +205,7 @@ function validate(selected) {
 // insert code for quiz complete screen
 
 document.querySelector(".restart").addEventListener("click", function () {
-    document.querySelector(".quiz-complete").style.display = "none"
+    document.querySelector(".quiz-complete").classList.toggle("visible")
     document.querySelector(".start-menu").classList.toggle("visible")
     qCount = -1
     score = 0
