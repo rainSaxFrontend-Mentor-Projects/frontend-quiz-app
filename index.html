@@ -79,9 +79,11 @@
 
     <article class="question-screen">
       <div class="left-content">
-        <p class="question-count">Question <span class="question-number"><!-- number --></span> of <span
-            class="question-total"><!-- total --></span></p>
-        <h2 class="question">Placeholder</h2>
+        <div class="question-wrapper">
+          <p class="question-count">Question <span class="question-number"><!-- number --></span> of <span
+              class="question-total"><!-- total --></span></p>
+          <h2 class="question">Placeholder</h2>
+        </div>
         <div class="progress-bar whole">
           <div class="progress-bar done">
 
@@ -115,10 +117,15 @@
     <!-- Quiz completed start -->
 
     <article class="quiz-complete">
-      Quiz completed
-      You scored...
+      <div class="complete-left">
+        <h1>Quiz completed
+          <span class="scored">You scored...</span>
+        </h1>
+      </div>
 
-      <!-- score --> out of 10
+      <div class="complete-right">
+        <span class="final-score"><!-- score --></span> out of <span class="complete-question-total">totalQ</span>
+      </div>
 
     </article>
 

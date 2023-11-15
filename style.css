@@ -101,8 +101,8 @@ button {
 .light-dark-switch {
     display: inline-block;
     position: relative;
-    width: 2rem;
-    height: 1.25rem;
+    width: clamp(2rem, 1.647887323943662rem + 1.5023474178403755vw, 3rem);
+    height: clamp(1.25rem, 1.073943661971831rem + 0.7511737089201878vw, 1.75rem);
 }
 
 .light-dark-switch input {
@@ -124,15 +124,15 @@ button {
     background-color: #fff;
     bottom: 4px;
     content: "";
-    height: .75rem;
+    height: clamp(0.75rem, 0.573943661971831rem + 0.7511737089201878vw, 1.25rem);
     left: 4px;
     position: absolute;
     transition: .4s;
-    width: .75rem;
+    width: clamp(0.75rem, 0.573943661971831rem + 0.7511737089201878vw, 1.25rem);
 }
 
 input:checked+.slider:before {
-    transform: translateX(0.8125rem);
+    transform: translateX(clamp(0.8125rem, 0.7033450704225352rem + 0.46572769953051646vw, 1.1225rem));
 }
 
 .slider.round {
@@ -145,8 +145,8 @@ input:checked+.slider:before {
 
 .sun-container,
 .moon-container {
-    width: 1rem;
-    height: 1rem;
+    width: clamp(1rem, 0.823943661971831rem + 0.7511737089201878vw, 1.5rem);
+    height: clamp(1rem, 0.823943661971831rem + 0.7511737089201878vw, 1.5rem);
 }
 
 .sun-container>img {
@@ -177,7 +177,13 @@ h1>span {
 h2 {
     color: var(--text-color);
     font-size: 1.125rem;
+    font-size: clamp(1.125rem, 0.905rem + 0.939vw, 1.75rem);
     font-weight: 500;
+}
+
+.question {
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, 0.898rem + 1.502vw, 2.25rem);
 }
 
 p {
@@ -215,7 +221,6 @@ button {
     background-color: var(--button-bg);
     color: var(--text-color);
     font-size: 1.125rem;
-    font-size: clamp(1.125rem, 0.905rem + 0.939vw, 1.75rem);
     font-weight: 500;
     display: grid;
     grid-template-rows: 1fr;
@@ -234,7 +239,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3.5rem;
     background-color: var(--purple);
     color: white;
 }
@@ -324,7 +328,17 @@ button {
     margin-top: 0;
 }
 
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 @media (min-width: 768px) {
+    button {
+        font-size: 1.75rem;
+    }
+
     article {
         padding: 2.5rem 4rem;
     }
@@ -351,6 +365,10 @@ button {
 }
 
 @media (min-width: 1440px) {
+
+    .left-content {
+        max-width: 35rem;
+    }
 
     .start-menu {
         display: flex;

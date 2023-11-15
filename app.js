@@ -98,7 +98,6 @@ function makeQuestions(quizChoice) {
                 break;
         }
         options[i].append(quizChoice.questions[qCount].options[i])
-        // options[i].innerHTML += "<img src='./assets/images/icon-correct.svg'>"
     }
 }
 
