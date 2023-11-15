@@ -113,6 +113,7 @@ for (let i = 0; i < options.length; i++) {
 
 submit.addEventListener("click", function () {
     let selectedBox, answerText;
+
     if (submit.textContent == "Next Question") {
         makeQuestions(quizChosen);
         return;
@@ -156,7 +157,16 @@ submit.addEventListener("click", function () {
     // console.log("current score is: " + score)
     revealAnswers();
 
+    if (qCount >= 9) {
+        console.log("all questions asked !")
+        // switch to results screen here
+        document.querySelector(".question-screen").style.display = "none"
+        document.querySelector(".quiz-complete").style.display = "block"
+        return;
+    }
+
     submit.textContent = "Next Question";
+    return;
 })
 
 function revealAnswers() {
@@ -185,3 +195,5 @@ function validate(selected) {
     let question = quizChosen.questions[qCount];
     return (question.answer === selected)
 }
+
+// insert code for quiz complete screen
