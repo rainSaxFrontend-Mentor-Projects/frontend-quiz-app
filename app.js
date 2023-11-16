@@ -111,7 +111,6 @@ var options = document.querySelectorAll(".option");
 
 for (let i = 0; i < options.length; i++) {
     options[i].addEventListener("click", function () {
-        // console.log(options[i].id + " was clicked!")
         for (option of options) {
             option.classList.remove("selected")
             option.firstChild.classList.remove("selected-box")
@@ -128,6 +127,10 @@ submit.addEventListener("click", function () {
         makeQuestions(quizChosen);
         return;
     }
+    if (submit.textContent == "See Results") {
+        showQuizComplete();
+        return;
+    }
     if (selectedBox = document.querySelector(".selected")) {
 
         // remove selection letter from string
@@ -138,7 +141,6 @@ submit.addEventListener("click", function () {
         selectedBox.firstChild.classList.remove("selected-box")
     }
     else {
-        console.log("no selected :(")
         document.querySelector(".select-prompt").style.visibility = "visible"
         return
     }
@@ -167,15 +169,12 @@ submit.addEventListener("click", function () {
     revealAnswers();
 
     if (qCount >= (totalQuestions - 1)) {
-        console.log("all questions asked !")
-        // switch to results screen here
-        document.querySelector(".question-screen").classList.toggle("visible")
-        document.querySelector(".quiz-complete").classList.toggle("visible")
-        document.querySelector(".final-score").textContent = score
-        document.querySelector(".complete-question-total").textContent = totalQuestions
-        return;
+        submit.textContent = "See Results"
+
     }
-    submit.textContent = "Next Question";
+    else {
+        submit.textContent = "Next Question";
+    }
     return;
 })
 
@@ -206,7 +205,12 @@ function validate(selected) {
     return (question.answer === selected)
 }
 
-// insert code for quiz complete screen
+function showQuizComplete() {
+    document.querySelector(".question-screen").classList.toggle("visible")
+    document.querySelector(".quiz-complete").classList.toggle("visible")
+    document.querySelector(".final-score").textContent = score
+    document.querySelector(".complete-question-total").textContent = totalQuestions
+}
 
 document.querySelector(".restart").addEventListener("click", function () {
     document.querySelector(".quiz-complete").classList.toggle("visible")

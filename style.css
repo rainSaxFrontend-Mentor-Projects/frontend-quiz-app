@@ -161,6 +161,17 @@ input:checked+.slider:before {
 }
 
 /*************** End - Light / Dark Toggle Switch ****************/
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+article {
+    padding: 1rem 1.5rem;
+}
+
 h1 {
     color: var(--text-color);
     font-weight: 300;
@@ -358,12 +369,20 @@ button {
     gap: 1rem;
     margin-bottom: 2rem;
     margin-top: 2.5rem;
-    border-radius: 1.5;
+    border-radius: 1.5rem;
     padding: 2rem;
 }
 
 .score-container>p {
     margin: 0;
+}
+
+.scored {
+    font-weight: 500;
+}
+
+.score-out-of {
+    font-style: normal;
 }
 
 .final-score {
@@ -416,16 +435,17 @@ button {
     .start-menu {
         justify-content: space-between;
         padding: 6rem 8.75rem;
+        gap: 10rem;
     }
 
     .question-screen {
         flex-direction: row;
-        justify-content: space-between;
+        gap: 10rem;
     }
 
     .quiz-complete {
         flex-direction: row;
-        justify-content: space-between;
+        gap: 10rem;
     }
 
     .choices {
