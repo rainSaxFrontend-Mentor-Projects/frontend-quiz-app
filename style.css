@@ -247,6 +247,10 @@ button:hover {
     cursor: pointer;
 }
 
+.option {
+    border: 3px solid transparent;
+}
+
 .submit-answer,
 .restart {
     display: flex;
@@ -313,7 +317,7 @@ button:hover {
 }
 
 .selected {
-    border: 3px solid var(--purple);
+    border-color: var(--purple);
 }
 
 .correct-box {
@@ -322,7 +326,7 @@ button:hover {
 }
 
 .correct {
-    border: 3px solid var(--correct-color);
+    border-color: var(--correct-color);
 }
 
 .correct-icon {
@@ -335,7 +339,7 @@ button:hover {
 }
 
 .invalid {
-    border: 3px solid var(--invalid-color);
+    border-color: var(--invalid-color);
 }
 
 .invalid-icon {
