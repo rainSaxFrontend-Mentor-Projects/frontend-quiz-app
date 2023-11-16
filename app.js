@@ -25,26 +25,31 @@ for (var i = 0; i < quizButtons.length; i++) {
 
 function questionScreen(type) {
     document.querySelector(".start-menu").classList.toggle("visible")
-    document.querySelector(".subject-chosen").innerHTML = type
-    document.querySelector(".curr-subject").style.visibility = "visible"
-
-    // if statement for setting image
-    if (type == "HTML") {
-        document.querySelector(".subject-img").src = "./assets/images/icon-html.svg"
-    }
-    else if (type == "CSS") {
-        document.querySelector(".subject-img").src = "./assets/images/icon-css.svg"
-    }
-    else if (type == "JavaScript") {
-        document.querySelector(".subject-img").src = "./assets/images/icon-js.svg"
-    }
-    else {
-        document.querySelector(".subject-img").src = "./assets/images/icon-accessibility.svg"
-    }
+    setSubjectBars(type)
     document.querySelector(".question-screen").classList.toggle("visible")
 
     //retrieve quiz data based on selection
     getQuiz(type);
+}
+
+function setSubjectBars(type) {
+    var bars = document.querySelectorAll(".curr-subject");
+    for (let bar of bars) {
+        bar.lastElementChild.innerHTML = type
+        if (type == "HTML") {
+            bar.firstElementChild.firstElementChild.src = "./assets/images/icon-html.svg"
+        }
+        else if (type == "CSS") {
+            bar.firstElementChild.firstElementChild.src = "./assets/images/icon-css.svg"
+        }
+        else if (type == "JavaScript") {
+            bar.firstElementChild.firstElementChild.src = "./assets/images/icon-js.svg"
+        }
+        else {
+            bar.firstElementChild.firstElementChild.src = "./assets/images/icon-accessibility.svg"
+        }
+        bar.style.visibility = "visible"
+    }
 }
 
 var quizChosen;
@@ -159,7 +164,6 @@ submit.addEventListener("click", function () {
         document.querySelector(".select-prompt").style.visibility = "hidden"
     }
 
-    // console.log("current score is: " + score)
     revealAnswers();
 
     if (qCount >= (totalQuestions - 1)) {
@@ -167,9 +171,10 @@ submit.addEventListener("click", function () {
         // switch to results screen here
         document.querySelector(".question-screen").classList.toggle("visible")
         document.querySelector(".quiz-complete").classList.toggle("visible")
+        document.querySelector(".final-score").textContent = score
+        document.querySelector(".complete-question-total").textContent = totalQuestions
         return;
     }
-
     submit.textContent = "Next Question";
     return;
 })
@@ -206,7 +211,6 @@ function validate(selected) {
 document.querySelector(".restart").addEventListener("click", function () {
     document.querySelector(".quiz-complete").classList.toggle("visible")
     document.querySelector(".start-menu").classList.toggle("visible")
-    document.querySelector(".curr-subject").style.visibility = "hidden"
     qCount = -1
     score = 0
 })

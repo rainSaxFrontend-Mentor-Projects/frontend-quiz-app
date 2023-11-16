@@ -161,11 +161,6 @@ input:checked+.slider:before {
 }
 
 /*************** End - Light / Dark Toggle Switch ****************/
-
-article {
-    padding: 1rem 1.5rem;
-}
-
 h1 {
     color: var(--text-color);
     font-weight: 300;
@@ -267,6 +262,13 @@ button {
     background-color: var(--accessibility-bg);
 }
 
+.restart {
+    display: flex;
+    justify-content: center;
+    background-color: var(--purple);
+    color: white;
+}
+
 .option-box {
     display: flex;
     align-items: center;
@@ -344,6 +346,31 @@ button {
 
 .visible {
     display: block;
+}
+
+.score-container {
+    background: var(--bg-col);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+    border-radius: 1.5;
+    padding: 2rem;
+}
+
+.score-container>p {
+    margin: 0;
+}
+
+.final-score {
+    font-weight: 500;
+    font-size: clamp(5.5rem, 4.268rem + 5.258vw, 9rem);
+    text-align: center;
+    font-style: normal;
 }
 
 @media (min-width: 768px) {
