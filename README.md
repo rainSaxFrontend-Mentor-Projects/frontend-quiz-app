@@ -42,8 +42,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://github.com/rainSaxFrontend-Mentor-Projects/frontend-quiz-app)
+- Live Site URL: [Live site URL](https://rainsaxfrontend-mentor-projects.github.io/frontend-quiz-app/)
 
 ## My process
 
