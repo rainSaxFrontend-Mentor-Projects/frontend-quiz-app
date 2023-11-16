@@ -244,12 +244,19 @@ button {
     box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, .14);
 }
 
-.submit-answer {
+.submit-answer,
+.restart {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--purple);
     color: white;
+}
+
+.submit-answer:hover,
+.restart:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, 0.50) 100%), var(--purple);
+    cursor: pointer;
 }
 
 .button-icon-container>img {
@@ -271,13 +278,6 @@ button {
 
 .button-icon-container>img[src="./assets/images/icon-accessibility.svg"] {
     background-color: var(--accessibility-bg);
-}
-
-.restart {
-    display: flex;
-    justify-content: center;
-    background-color: var(--purple);
-    color: white;
 }
 
 .option-box {
