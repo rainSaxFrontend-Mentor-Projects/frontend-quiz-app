@@ -244,6 +244,10 @@ button {
     box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, .14);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .submit-answer,
 .restart {
     display: flex;
@@ -256,7 +260,6 @@ button {
 .submit-answer:hover,
 .restart:hover {
     background: linear-gradient(0deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, 0.50) 100%), var(--purple);
-    cursor: pointer;
 }
 
 .button-icon-container>img {
